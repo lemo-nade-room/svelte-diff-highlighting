@@ -56,3 +56,11 @@ To publish your library to [npm](https://www.npmjs.com):
 ```bash
 npm publish
 ```
+
+## License
+
+This software is released under the MIT License. For more details, please refer to the [LICENSE](./LICENSE) file.
+
+Portions of this code are protected under copyright and are used under the terms of the BSD 3-Clause License:
+
+[highlight.js](https://github.com/highlightjs/highlight.js/blob/main/LICENSE)
