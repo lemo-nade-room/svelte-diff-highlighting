@@ -1,40 +1,60 @@
 <!--
-BSD 3-Clause License
-
-Copyright (c) 2006, Ivan Sagalaev.
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-- Redistributions of source code must retain the above copyright notice,
-this list of conditions and the following disclaimer.
-- Redistributions in binary form must reproduce the above copyright notice,
-this list of conditions and the following disclaimer in the documentation
-and/or other materials provided with the distribution.
-- Neither the name of the copyright holder nor the names of its
-contributors may be used to endorse or promote products derived from
-this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
-
-<!--
 	@component
 
 -->
 
 <script lang="ts">
-	export let text: string
+	import hljs, { type HighlightResult } from 'highlight.js';
+	import 'highlight.js/styles/github.css';
+	import { onMount } from 'svelte';
+	import type { Language } from '$lib/scripts/language.js';
+
+	export let text = '';
+	export let languages: readonly Language[];
+	export let language: Language | undefined;
+
+	let highlighted: HighlightResult | undefined;
+	onMount(async () => {
+		if (import.meta.env.SSR) return;
+		for (const language of languages) {
+			hljs.registerLanguage(language.name, language.fn);
+		}
+		if (language === undefined) {
+			highlighted = hljs.highlightAuto(text);
+		} else {
+			highlighted = hljs.highlight(text, { language: language.name });
+		}
+	});
 </script>
 
-{ text }
+<div class="scroll">
+	<p class="highlighted">
+		{#if highlighted !== undefined}
+			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+			{@html highlighted.value}
+		{/if}
+	</p>
+</div>
+
+<style>
+	.scroll {
+		width: var(--width, 100%);
+		max-width: var(--max-width, 100%);
+		height: var(--height, 100%);
+		max-height: var(--max-height, 100%);
+		overflow-x: var(--overflow-x, auto);
+		overflow-y: var(--overflow-y, auto);
+		background: var(--background, none);
+		margin: var(--margin, 0);
+		padding: var(--padding, 0);
+		white-space: var(--white-space, pre-wrap);
+		tab-size: var(--tab-size, 2);
+		box-sizing: var(--box-sizing, border-box);
+		scrollbar-width: var(--scrollbar-width, thin);
+		scrollbar-color: var(--scrollbar-color, auto);
+		& > .highlighted {
+			width: var(--content-width, max-content);
+			height: var(--content-height, max-content);
+		}
+	}
+</style>
