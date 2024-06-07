@@ -32,6 +32,7 @@ import { terraform } from '$lib/scripts/fn/terraform.js';
 import typescript from 'highlight.js/lib/languages/typescript';
 import { vba } from '$lib/scripts/fn/vba.js';
 import yaml from 'highlight.js/lib/languages/yaml';
+import { zig } from '$lib/scripts/fn/zig.js';
 
 /**
  * Syntax Highlighting Code Language
@@ -90,6 +91,7 @@ export class Language {
 	static readonly typescript = new Language('typescript', typescript, ['.ts', '.tsx']);
 	static readonly vba = new Language('vba', vba, ['.vba']);
 	static readonly yaml = new Language('yaml', yaml, ['.yaml', '.yml']);
+	static readonly zig = new Language('zig', zig, ['.zig']);
 
 	static readonly allCases: readonly Language[] = [
 		this.appleScript,
@@ -123,6 +125,7 @@ export class Language {
 		this.terraform,
 		this.typescript,
 		this.vba,
-		this.yaml
+		this.yaml,
+		this.zig
 	];
 }
