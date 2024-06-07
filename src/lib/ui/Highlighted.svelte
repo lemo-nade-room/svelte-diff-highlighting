@@ -5,7 +5,6 @@
 
 <script lang="ts">
 	import hljs, { type HighlightResult } from 'highlight.js';
-	import 'highlight.js/styles/github.css';
 	import { onMount } from 'svelte';
 	import type { Language } from '$lib/scripts/language.js';
 	import { highlightText, hljsRegisterLanguages } from '$lib/scripts/hljs.js';
