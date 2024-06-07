@@ -308,5 +308,10 @@ end`,
   }
 }`,
 		lang: Language.scss
+	},
+	{
+		code: `ALTER TABLE Customers
+ADD Email varchar(255);`,
+		lang: Language.sql
 	}
 ];

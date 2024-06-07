@@ -24,6 +24,7 @@ import python from 'highlight.js/lib/languages/python';
 import ruby from 'highlight.js/lib/languages/ruby';
 import rust from 'highlight.js/lib/languages/rust';
 import scss from 'highlight.js/lib/languages/scss';
+import sql from 'highlight.js/lib/languages/sql';
 
 /**
  * Syntax Highlighting Code Language
@@ -74,6 +75,7 @@ export class Language {
 	static readonly ruby = new Language('ruby', ruby, ['.rb', '.ru']);
 	static readonly rust = new Language('rust', rust, ['.rs']);
 	static readonly scss = new Language('scss', scss, ['.scss']);
+	static readonly sql = new Language('sql', sql, ['.sql']);
 
 	static readonly allCases: readonly Language[] = [
 		this.appleScript,
