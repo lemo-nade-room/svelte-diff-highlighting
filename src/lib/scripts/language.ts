@@ -6,6 +6,7 @@ import c from 'highlight.js/lib/languages/c';
 import cpp from 'highlight.js/lib/languages/cpp';
 import css from 'highlight.js/lib/languages/css';
 import dart from 'highlight.js/lib/languages/dart';
+import dockerfile from 'highlight.js/lib/languages/dockerfile';
 
 /**
  * Syntax Highlighting Code Language
@@ -33,6 +34,7 @@ export class Language {
 	static readonly cpp = new Language('cpp', cpp, ['.cpp', '.cxx', '.cc', '.h', '.hpp']);
 	static readonly css = new Language('css', css, ['.css']);
 	static readonly dart = new Language('dart', dart, ['.dart']);
+	static readonly dockerfile = new Language('dockerfile', dockerfile, ['Dockerfile']);
 
 	static readonly allCases: readonly Language[] = [
 		this.appleScript,
@@ -41,6 +43,7 @@ export class Language {
 		this.c,
 		this.cpp,
 		this.css,
-		this.dart
+		this.dart,
+		this.dockerfile
 	];
 }
