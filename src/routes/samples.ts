@@ -313,5 +313,34 @@ end`,
 		code: `ALTER TABLE Customers
 ADD Email varchar(255);`,
 		lang: Language.sql
+	},
+	{
+		code: `class Point(
+    var x: Double, var y: Double,
+    addToGrid: Boolean = false
+):
+  import Point._
+  
+  def += (p: Point) =
+     x += p.x
+     y += p.y
+
+  if (addToGrid)
+    grid += this
+
+  def this() = this(0.0, 0.0)
+
+  def distanceToPoint(other: Point) =
+    distanceBetweenPoints(x, y, other.x, other.y)
+
+end Point
+
+object Point:
+  private val grid = new Point()
+
+  def distanceBetweenPoints(x1: Double, y1: Double,
+      x2: Double, y2: Double) =
+    math.hypot(x1 - x2, y1 - y2)`,
+		lang: Language.scala
 	}
 ];
