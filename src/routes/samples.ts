@@ -99,5 +99,11 @@ if ok {
 	fmt.Println("Can't print shape as Square")
 }`,
 		lang: Language.go
+	},
+	{
+		code: `<input type="text"> <!-- This is for text input -->
+<input type="file"> <!-- This is for uploading files -->
+<input type="checkbox"> <!-- This is for checkboxes -->`,
+		lang: Language.xml
 	}
 ];
