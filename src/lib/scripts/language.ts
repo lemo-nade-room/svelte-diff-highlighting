@@ -4,6 +4,7 @@ import bash from 'highlight.js/lib/languages/bash';
 import csharp from 'highlight.js/lib/languages/csharp';
 import c from 'highlight.js/lib/languages/c';
 import cpp from 'highlight.js/lib/languages/cpp';
+import css from 'highlight.js/lib/languages/css';
 
 /**
  * Syntax Highlighting Code Language
@@ -29,12 +30,14 @@ export class Language {
 	static readonly csharp = new Language('csharp', csharp, ['.cs']);
 	static readonly c = new Language('c', c, ['.c']);
 	static readonly cpp = new Language('cpp', cpp, ['.cpp', '.cxx', '.cc', '.h', '.hpp']);
+	static readonly css = new Language('css', css, ['.css']);
 
 	static readonly allCases: readonly Language[] = [
 		this.appleScript,
 		this.bash,
 		this.csharp,
 		this.c,
-		this.cpp
+		this.cpp,
+		this.css
 	];
 }

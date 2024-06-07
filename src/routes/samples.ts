@@ -55,5 +55,12 @@ int main()
     std::cout << "Hello, world!\\n";
 }`,
 		lang: Language.cpp
+	},
+	{
+		code: `body {
+   overflow: hidden;
+   background: #000 url(images/bg.gif) no-repeat left top;
+}`,
+		lang: Language.css
 	}
 ];
