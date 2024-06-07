@@ -46,5 +46,14 @@ int main(void)
     printf("hello, world\\n");
 }`,
 		lang: Language.c
+	},
+	{
+		code: `#include <iostream>
+
+int main()
+{
+    std::cout << "Hello, world!\\n";
+}`,
+		lang: Language.cpp
 	}
 ];
