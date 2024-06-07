@@ -15,6 +15,7 @@ import json from 'highlight.js/lib/languages/json';
 import java from 'highlight.js/lib/languages/java';
 import javascript from 'highlight.js/lib/languages/javascript';
 import kotlin from 'highlight.js/lib/languages/kotlin';
+import latex from 'highlight.js/lib/languages/latex';
 
 /**
  * Syntax Highlighting Code Language
@@ -56,6 +57,7 @@ export class Language {
 		'.cjs'
 	]);
 	static readonly kotlin = new Language('kotlin', kotlin, ['.kt', '.kts']);
+	static readonly latex = new Language('latex', latex, ['.tex']);
 
 	static readonly allCases: readonly Language[] = [
 		this.appleScript,
@@ -73,6 +75,7 @@ export class Language {
 		this.json,
 		this.java,
 		this.javascript,
-		this.kotlin
+		this.kotlin,
+		this.latex
 	];
 }
