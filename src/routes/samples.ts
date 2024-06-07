@@ -159,5 +159,12 @@ if ok {
     }
 };`,
 		lang: Language.javascript
+	},
+	{
+		code: `fun main(args: Array<String>) {
+    for (arg in args)
+        println(arg)
+}`,
+		lang: Language.kotlin
 	}
 ];
