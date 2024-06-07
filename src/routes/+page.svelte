@@ -22,6 +22,24 @@ if [ -n "$PS1" ] ; then                       # are we interactive?
 fi                                            # End of "if" block`,
 			lang: Language.bash
 		},
+		{
+			code: `public class DataStore<T>
+{
+    private T[] items = new T[10];
+    private int count = 0;
+
+    public void Add(T item)
+    {
+        items[count++] = item;
+    }
+
+    public T Get(int index)
+    {
+        return items[index];
+    }
+}`,
+			lang: Language.csharp
+		}
 	];
 
 	let selectedName = samples[0].lang.name;

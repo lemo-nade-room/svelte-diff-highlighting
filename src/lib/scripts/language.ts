@@ -1,6 +1,7 @@
 import type { LanguageFn } from 'highlight.js';
 import applescript from 'highlight.js/lib/languages/applescript';
 import bash from 'highlight.js/lib/languages/bash';
+import csharp from 'highlight.js/lib/languages/csharp';
 
 /**
  * Syntax Highlighting Code Language
@@ -23,6 +24,7 @@ export class Language {
 		'.scptd'
 	]);
 	static readonly bash = new Language('bash', bash, ['.sh', '.bash', '.zsh']);
+	static readonly csharp = new Language('csharp', csharp, ['.cs']);
 
-	static readonly allCases: readonly Language[] = [this.appleScript];
+	static readonly allCases: readonly Language[] = [this.appleScript, this.bash, this.csharp];
 }
