@@ -62,5 +62,11 @@ int main()
    background: #000 url(images/bg.gif) no-repeat left top;
 }`,
 		lang: Language.css
+	},
+	{
+		code: `int fibonacci(int n) {
+  return n < 2 ? n : (fibonacci(n - 1) + fibonacci(n - 2));
+}`,
+		lang: Language.dart
 	}
 ];
