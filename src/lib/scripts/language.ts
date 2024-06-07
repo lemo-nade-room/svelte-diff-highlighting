@@ -26,9 +26,10 @@ import rust from 'highlight.js/lib/languages/rust';
 import scss from 'highlight.js/lib/languages/scss';
 import sql from 'highlight.js/lib/languages/sql';
 import scala from 'highlight.js/lib/languages/scala';
-// @ts-expect-error TS7016: Could not find a declaration file for module highlightjs-svelte.
-import svelte from 'highlightjs-svelte';
+import { svelte } from '$lib/scripts/fn/svelte.js';
 import swift from 'highlight.js/lib/languages/swift';
+import { terraform } from '$lib/scripts/fn/terraform.js';
+import typescript from 'highlight.js/lib/languages/typescript';
 
 /**
  * Syntax Highlighting Code Language
@@ -83,6 +84,8 @@ export class Language {
 	static readonly scala = new Language('scala', scala, ['.scala']);
 	static readonly svelte = new Language('svelte', svelte, ['.svelte']);
 	static readonly swift = new Language('swift', swift, ['.swift']);
+	static readonly terraform = new Language('terraform', terraform, ['.tf', '.tfvars']);
+	static readonly typescript = new Language('typescript', typescript, ['.ts', '.tsx']);
 
 	static readonly allCases: readonly Language[] = [
 		this.appleScript,
@@ -112,6 +115,8 @@ export class Language {
 		this.scss,
 		this.scala,
 		this.svelte,
-		this.swift
+		this.swift,
+		this.terraform,
+		this.typescript
 	];
 }
