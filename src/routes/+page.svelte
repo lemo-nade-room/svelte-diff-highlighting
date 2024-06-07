@@ -99,7 +99,6 @@ fi                                            # End of "if" block`,
 			max-width: 90svw;
 			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 			padding: 12px 24px;
-			--overflow-x: scroll;
 		}
 	}
 </style>
