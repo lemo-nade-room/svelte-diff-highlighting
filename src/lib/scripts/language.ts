@@ -11,6 +11,7 @@ import fsharp from 'highlight.js/lib/languages/fsharp';
 import go from 'highlight.js/lib/languages/go';
 import xml from 'highlight.js/lib/languages/xml';
 import haskell from 'highlight.js/lib/languages/haskell';
+import json from 'highlight.js/lib/languages/json';
 
 /**
  * Syntax Highlighting Code Language
@@ -43,6 +44,7 @@ export class Language {
 	static readonly go = new Language('go', go, ['.go']);
 	static readonly xml = new Language('xml', xml, ['.xml', '.html', '.xhtml', '.rss', '.atom']);
 	static readonly haskell = new Language('haskell', haskell, ['.hs']);
+	static readonly json = new Language('json', json, ['.json']);
 
 	static readonly allCases: readonly Language[] = [
 		this.appleScript,
@@ -56,6 +58,7 @@ export class Language {
 		this.fsharp,
 		this.go,
 		this.xml,
-		this.haskell
+		this.haskell,
+		this.json
 	];
 }
