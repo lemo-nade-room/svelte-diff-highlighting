@@ -17,6 +17,8 @@ import javascript from 'highlight.js/lib/languages/javascript';
 import kotlin from 'highlight.js/lib/languages/kotlin';
 import latex from 'highlight.js/lib/languages/latex';
 import makefile from 'highlight.js/lib/languages/makefile';
+import markdown from 'highlight.js/lib/languages/markdown';
+import php from 'highlight.js/lib/languages/php';
 
 /**
  * Syntax Highlighting Code Language
@@ -60,6 +62,8 @@ export class Language {
 	static readonly kotlin = new Language('kotlin', kotlin, ['.kt', '.kts']);
 	static readonly latex = new Language('latex', latex, ['.tex']);
 	static readonly makefile = new Language('makefile', makefile, ['Makefile']);
+	static readonly markdown = new Language('markdown', markdown, ['.md']);
+	static readonly php = new Language('php', php, ['.php']);
 
 	static readonly allCases: readonly Language[] = [
 		this.appleScript,
@@ -79,6 +83,8 @@ export class Language {
 		this.javascript,
 		this.kotlin,
 		this.latex,
-		this.makefile
+		this.makefile,
+		this.markdown,
+		this.php
 	];
 }

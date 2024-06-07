@@ -203,5 +203,28 @@ if ok {
 .html.txt:
 	lynx -dump $<   >   $@`,
 		lang: Language.makefile
+	},
+	{
+		code: `A [link](http://example.com).
+
+![Image](Icon-pictures.png "icon")
+
+> Markdown uses email-style
+characters for blockquoting.
+>
+> Multiple paragraphs need to be prepended individually.
+
+Most inline <abbr title="Hypertext Markup Language">HTML</abbr> tags are supported.`,
+		lang: Language.markdown
+	},
+	{
+		code: `<?php
+    $name = 'John';  // variable of string type being declared and initialized
+    $age = 18;       // variable of integer type being declared and initialized
+    $height = 5.3;   // variable of double type being declared and initialized
+    echo $name . ' is ' . $height . "m tall\\n"; // concatenating variables and strings
+    echo "$name is $age years old."; // interpolating variables to string
+?>`,
+		lang: Language.php
 	}
 ];
