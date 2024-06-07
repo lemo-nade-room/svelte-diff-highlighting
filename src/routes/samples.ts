@@ -195,5 +195,13 @@ if ok {
   \\\\end{align} 
 \\\\end{document}`,
 		lang: Language.latex
+	},
+	{
+		code: `.SUFFIXES: .txt .html
+
+# From .html to .txt
+.html.txt:
+	lynx -dump $<   >   $@`,
+		lang: Language.makefile
 	}
 ];
