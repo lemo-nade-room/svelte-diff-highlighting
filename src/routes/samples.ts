@@ -89,5 +89,15 @@ EXPOSE 22`,
     member x.Name = name
     member x.Age = age`,
 		lang: Language.fsharp
+	},
+	{
+		code: `var shp Shape = Square{5}
+square, ok := shp.(Square) // Asserts Square type on shp, should work
+if ok {
+	fmt.Printf("%#v\\n", square)
+} else {
+	fmt.Println("Can't print shape as Square")
+}`,
+		lang: Language.go
 	}
 ];

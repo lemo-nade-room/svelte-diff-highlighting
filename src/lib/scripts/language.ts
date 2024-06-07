@@ -8,6 +8,7 @@ import css from 'highlight.js/lib/languages/css';
 import dart from 'highlight.js/lib/languages/dart';
 import dockerfile from 'highlight.js/lib/languages/dockerfile';
 import fsharp from 'highlight.js/lib/languages/fsharp';
+import go from 'highlight.js/lib/languages/go';
 
 /**
  * Syntax Highlighting Code Language
@@ -37,6 +38,7 @@ export class Language {
 	static readonly dart = new Language('dart', dart, ['.dart']);
 	static readonly dockerfile = new Language('dockerfile', dockerfile, ['Dockerfile']);
 	static readonly fsharp = new Language('fsharp', fsharp, ['.fs', '.fsx', '.fsi']);
+	static readonly go = new Language('go', go, ['.go']);
 
 	static readonly allCases: readonly Language[] = [
 		this.appleScript,
@@ -47,6 +49,7 @@ export class Language {
 		this.css,
 		this.dart,
 		this.dockerfile,
-		this.fsharp
+		this.fsharp,
+		this.go
 	];
 }
