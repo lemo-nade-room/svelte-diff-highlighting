@@ -150,5 +150,14 @@ if ok {
   }
 }`,
 		lang: Language.java
+	},
+	{
+		code: `const counter = function() {
+    let count = 0;
+    return function() {
+        return ++count;
+    }
+};`,
+		lang: Language.javascript
 	}
 ];
