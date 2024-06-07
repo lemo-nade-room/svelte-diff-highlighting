@@ -226,5 +226,24 @@ Most inline <abbr title="Hypertext Markup Language">HTML</abbr> tags are support
     echo "$name is $age years old."; // interpolating variables to string
 ?>`,
 		lang: Language.php
+	},
+	{
+		code: `#!/usr/bin/perl
+use strict;
+use warnings;
+
+my ( $remaining, $total );
+
+$remaining = $total = shift(@ARGV);
+
+STDOUT->autoflush(1);
+
+while ( $remaining ) {
+    printf ( "Remaining %s/%s \\r", $remaining--, $total );
+    sleep 1;
+}
+
+print "\\n";`,
+		lang: Language.perl
 	}
 ];
