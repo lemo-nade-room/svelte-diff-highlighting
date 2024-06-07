@@ -83,5 +83,11 @@ VOLUME ["/myvolume"]
 # Expose a port (22 for SSH)
 EXPOSE 22`,
 		lang: Language.dockerfile
+	},
+	{
+		code: `type Person(name : string, age : int) =
+    member x.Name = name
+    member x.Age = age`,
+		lang: Language.fsharp
 	}
 ];
