@@ -23,14 +23,16 @@
 	$: {
 		highlighted = highlightText(hljs, text, language);
 	}
+
+	$: lines = highlighted?.value.split('\n') ?? [];
 </script>
 
 <div class="scroll">
 	<p class="highlighted">
-		{#if highlighted !== undefined}
+		{#each lines as line}
 			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-			{@html highlighted.value}
-		{/if}
+			<span class="line">{@html line}</span>
+		{/each}
 	</p>
 </div>
 
@@ -50,9 +52,16 @@
 		box-sizing: var(--box-sizing, border-box);
 		scrollbar-width: var(--scrollbar-width, thin);
 		scrollbar-color: var(--scrollbar-color, auto);
+
 		& > .highlighted {
 			width: var(--content-width, max-content);
 			height: var(--content-height, max-content);
+
+			& > .line {
+				display: block;
+				box-sizing: content-box;
+				line-height: var(--line-height, 1.4);
+			}
 		}
 	}
 </style>
