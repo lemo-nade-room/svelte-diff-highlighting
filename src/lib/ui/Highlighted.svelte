@@ -8,23 +8,22 @@
 	import 'highlight.js/styles/github.css';
 	import { onMount } from 'svelte';
 	import type { Language } from '$lib/scripts/language.js';
+	import { highlightText, hljsRegisterLanguages } from '$lib/scripts/hljs.js';
 
 	export let text = '';
 	export let languages: readonly Language[];
 	export let language: Language | undefined;
 
 	let highlighted: HighlightResult | undefined;
+
 	onMount(async () => {
 		if (import.meta.env.SSR) return;
-		for (const language of languages) {
-			hljs.registerLanguage(language.name, language.fn);
-		}
-		if (language === undefined) {
-			highlighted = hljs.highlightAuto(text);
-		} else {
-			highlighted = hljs.highlight(text, { language: language.name });
-		}
+		hljsRegisterLanguages(hljs, languages);
 	});
+
+	$: {
+		highlighted = highlightText(hljs, text, language);
+	}
 </script>
 
 <div class="scroll">

@@ -13,10 +13,22 @@
 	display dialog "I don't have something to bring" buttons {"OK"} default button "OK"
 end if`,
 			lang: Language.appleScript
-		}
+		},
+		{
+			code: `[ -r ~/.profile ] && . ~/.profile             # set up environment, once, Bourne-sh syntax only
+if [ -n "$PS1" ] ; then                       # are we interactive?
+   [ -r ~/.bashrc     ] && . ~/.bashrc        # tty/prompt/function setup for interactive shells
+   [ -r ~/.bash_login ] && . ~/.bash_login    # any at-login tasks for login shell only
+fi                                            # End of "if" block`,
+			lang: Language.bash
+		},
 	];
 
 	let selectedName = samples[0].lang.name;
+
+	$: {
+		console.log(selectedName, selected?.code)
+	}
 
 	$: selected = samples.find((sample) => sample.lang.name === selectedName);
 </script>
