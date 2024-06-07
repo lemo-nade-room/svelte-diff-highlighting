@@ -412,5 +412,18 @@ resource "aws_instance" "app_server" {
     Range("B2").Select
 End Sub`,
 		lang: Language.vba
+	},
+	{
+		code: `--- # The Smiths
+- {name: John Smith, age: 33}
+- name: Mary Smith
+  age: 27
+- [name, age]: [Rae Smith, 4]   # sequences as keys are supported
+--- # People, by gender
+men: [John Smith, Bill Jones]
+women:
+  - Mary Smith
+  - Susan Williams`,
+		lang: Language.yaml
 	}
 ];
