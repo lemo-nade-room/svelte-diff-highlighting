@@ -2,6 +2,7 @@ import type { LanguageFn } from 'highlight.js';
 import applescript from 'highlight.js/lib/languages/applescript';
 import bash from 'highlight.js/lib/languages/bash';
 import csharp from 'highlight.js/lib/languages/csharp';
+import c from 'highlight.js/lib/languages/c';
 
 /**
  * Syntax Highlighting Code Language
@@ -25,6 +26,12 @@ export class Language {
 	]);
 	static readonly bash = new Language('bash', bash, ['.sh', '.bash', '.zsh']);
 	static readonly csharp = new Language('csharp', csharp, ['.cs']);
+	static readonly c = new Language('c', c, ['.c']);
 
-	static readonly allCases: readonly Language[] = [this.appleScript, this.bash, this.csharp];
+	static readonly allCases: readonly Language[] = [
+		this.appleScript,
+		this.bash,
+		this.csharp,
+		this.c
+	];
 }
