@@ -28,6 +28,7 @@ import sql from 'highlight.js/lib/languages/sql';
 import scala from 'highlight.js/lib/languages/scala';
 // @ts-expect-error TS7016: Could not find a declaration file for module highlightjs-svelte.
 import svelte from 'highlightjs-svelte';
+import swift from 'highlight.js/lib/languages/swift';
 
 /**
  * Syntax Highlighting Code Language
@@ -81,6 +82,7 @@ export class Language {
 	static readonly sql = new Language('sql', sql, ['.sql']);
 	static readonly scala = new Language('scala', scala, ['.scala']);
 	static readonly svelte = new Language('svelte', svelte, ['.svelte']);
+	static readonly swift = new Language('swift', swift, ['.swift']);
 
 	static readonly allCases: readonly Language[] = [
 		this.appleScript,
@@ -109,6 +111,7 @@ export class Language {
 		this.rust,
 		this.scss,
 		this.scala,
-		this.svelte
+		this.svelte,
+		this.swift
 	];
 }

@@ -353,5 +353,19 @@ object Point:
 
 <button on:click={() => count = count + 1}>Count</button>`,
 		lang: Language.svelte
+	},
+	{
+		code: `struct Player {
+    var name: String
+    var highScore: Int = 0
+    var history: [Int] = []
+
+    init(_ name: String) {
+        self.name = name
+    }
+}
+
+var player = Player("Tomas")`,
+		lang: Language.swift
 	}
 ];
