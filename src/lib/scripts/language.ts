@@ -10,6 +10,7 @@ import dockerfile from 'highlight.js/lib/languages/dockerfile';
 import fsharp from 'highlight.js/lib/languages/fsharp';
 import go from 'highlight.js/lib/languages/go';
 import xml from 'highlight.js/lib/languages/xml';
+import haskell from 'highlight.js/lib/languages/haskell';
 
 /**
  * Syntax Highlighting Code Language
@@ -41,6 +42,7 @@ export class Language {
 	static readonly fsharp = new Language('fsharp', fsharp, ['.fs', '.fsx', '.fsi']);
 	static readonly go = new Language('go', go, ['.go']);
 	static readonly xml = new Language('xml', xml, ['.xml', '.html', '.xhtml', '.rss', '.atom']);
+	static readonly haskell = new Language('haskell', haskell, ['.hs']);
 
 	static readonly allCases: readonly Language[] = [
 		this.appleScript,
@@ -53,6 +55,7 @@ export class Language {
 		this.dockerfile,
 		this.fsharp,
 		this.go,
-		this.xml
+		this.xml,
+		this.haskell
 	];
 }

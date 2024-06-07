@@ -105,5 +105,11 @@ if ok {
 <input type="file"> <!-- This is for uploading files -->
 <input type="checkbox"> <!-- This is for checkboxes -->`,
 		lang: Language.xml
+	},
+	{
+		code: `primes = filterPrime [2..] where
+  filterPrime (p:xs) =
+    p : filterPrime [x | x <- xs, x \`mod\` p /= 0]`,
+		lang: Language.haskell
 	}
 ];
