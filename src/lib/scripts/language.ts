@@ -12,6 +12,7 @@ import go from 'highlight.js/lib/languages/go';
 import xml from 'highlight.js/lib/languages/xml';
 import haskell from 'highlight.js/lib/languages/haskell';
 import json from 'highlight.js/lib/languages/json';
+import java from 'highlight.js/lib/languages/java';
 
 /**
  * Syntax Highlighting Code Language
@@ -45,6 +46,7 @@ export class Language {
 	static readonly xml = new Language('xml', xml, ['.xml', '.html', '.xhtml', '.rss', '.atom']);
 	static readonly haskell = new Language('haskell', haskell, ['.hs']);
 	static readonly json = new Language('json', json, ['.json']);
+	static readonly java = new Language('java', java, ['.java']);
 
 	static readonly allCases: readonly Language[] = [
 		this.appleScript,
@@ -59,6 +61,7 @@ export class Language {
 		this.go,
 		this.xml,
 		this.haskell,
-		this.json
+		this.json,
+		this.java
 	];
 }
