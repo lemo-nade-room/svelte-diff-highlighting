@@ -298,5 +298,15 @@ end`,
     }
 }`,
 		lang: Language.rust
+	},
+	{
+		code: `$base-color: #036;
+
+@for $i from 1 through 3 {
+  ul:nth-child(3n + #{$i}) {
+    background-color: lighten($base-color, $i * 5%);
+  }
+}`,
+		lang: Language.scss
 	}
 ];
