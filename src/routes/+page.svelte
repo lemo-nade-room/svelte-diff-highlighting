@@ -5,10 +5,6 @@
 
 	let selectedName = samples[0].lang.name;
 
-	$: {
-		console.log(selectedName, selected?.code)
-	}
-
 	$: selected = samples.find((sample) => sample.lang.name === selectedName);
 </script>
 
