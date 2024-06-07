@@ -20,6 +20,8 @@ import makefile from 'highlight.js/lib/languages/makefile';
 import markdown from 'highlight.js/lib/languages/markdown';
 import php from 'highlight.js/lib/languages/php';
 import perl from 'highlight.js/lib/languages/perl';
+import python from 'highlight.js/lib/languages/python';
+import ruby from 'highlight.js/lib/languages/ruby';
 
 /**
  * Syntax Highlighting Code Language
@@ -66,6 +68,8 @@ export class Language {
 	static readonly markdown = new Language('markdown', markdown, ['.md']);
 	static readonly php = new Language('php', php, ['.php']);
 	static readonly perl = new Language('perl', perl, ['.plx', '.pls', '.pl', '.pm', '.xs']);
+	static readonly python = new Language('python', python, ['.py']);
+	static readonly ruby = new Language('ruby', ruby, ['.rb', '.ru']);
 
 	static readonly allCases: readonly Language[] = [
 		this.appleScript,
@@ -87,8 +91,9 @@ export class Language {
 		this.latex,
 		this.makefile,
 		this.markdown,
-		this.php
 		this.php,
 		this.perl,
+		this.python,
+		this.ruby
 	];
 }
