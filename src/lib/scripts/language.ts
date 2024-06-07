@@ -22,6 +22,7 @@ import php from 'highlight.js/lib/languages/php';
 import perl from 'highlight.js/lib/languages/perl';
 import python from 'highlight.js/lib/languages/python';
 import ruby from 'highlight.js/lib/languages/ruby';
+import rust from 'highlight.js/lib/languages/rust';
 
 /**
  * Syntax Highlighting Code Language
@@ -70,6 +71,7 @@ export class Language {
 	static readonly perl = new Language('perl', perl, ['.plx', '.pls', '.pl', '.pm', '.xs']);
 	static readonly python = new Language('python', python, ['.py']);
 	static readonly ruby = new Language('ruby', ruby, ['.rb', '.ru']);
+	static readonly rust = new Language('rust', rust, ['.rs']);
 
 	static readonly allCases: readonly Language[] = [
 		this.appleScript,
@@ -94,6 +96,7 @@ export class Language {
 		this.php,
 		this.perl,
 		this.python,
-		this.ruby
+		this.ruby,
+		this.rust
 	];
 }
