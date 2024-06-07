@@ -30,6 +30,7 @@ import { svelte } from '$lib/scripts/fn/svelte.js';
 import swift from 'highlight.js/lib/languages/swift';
 import { terraform } from '$lib/scripts/fn/terraform.js';
 import typescript from 'highlight.js/lib/languages/typescript';
+import { vba } from '$lib/scripts/fn/vba.js';
 
 /**
  * Syntax Highlighting Code Language
@@ -86,6 +87,7 @@ export class Language {
 	static readonly swift = new Language('swift', swift, ['.swift']);
 	static readonly terraform = new Language('terraform', terraform, ['.tf', '.tfvars']);
 	static readonly typescript = new Language('typescript', typescript, ['.ts', '.tsx']);
+	static readonly vba = new Language('vba', vba, ['.vba']);
 
 	static readonly allCases: readonly Language[] = [
 		this.appleScript,
@@ -117,6 +119,7 @@ export class Language {
 		this.svelte,
 		this.swift,
 		this.terraform,
-		this.typescript
+		this.typescript,
+		this.vba
 	];
 }

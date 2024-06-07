@@ -400,5 +400,17 @@ resource "aws_instance" "app_server" {
 	return left + right;
 }`,
 		lang: Language.typescript
+	},
+	{
+		code: `Sub Macro1()
+'
+' Macro1 Macro
+'
+'
+    Range("B1").Select
+    ActiveCell.FormulaR1C1 = "Hello World"
+    Range("B2").Select
+End Sub`,
+		lang: Language.vba
 	}
 ];
