@@ -8,6 +8,8 @@
 	import { onMount } from 'svelte';
 	import { Language } from '$lib/scripts/language.js';
 	import { highlightText, hljsRegisterLanguages } from '$lib/scripts/hljs.js';
+	import { difference } from '$lib/scripts/diff.js';
+	import { Markers } from '$lib/scripts/markers.js';
 
 	export let text = '';
 	export let languages: readonly Language[] = Language.allCases;
@@ -23,13 +25,17 @@
 
 	$: highlighted = import.meta.env.SSR ? undefined : highlightText(hljs, text, language);
 	$: lines = highlighted?.value.split('\n') ?? [];
+	$: markers = old === undefined ? new Markers([]) : difference(old, text);
 </script>
 
 <div class="scroll">
 	<p class="highlighted">
-		{#each lines as line}
-			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-			<span class="line">{@html line}</span>
+		{#each lines as line, i}
+			{@const lineNumber = i + 1}
+			<span class="line" class:added={markers.isAddMark(lineNumber)}>
+				<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+				{@html line}
+			</span>
 		{/each}
 	</p>
 </div>
@@ -52,13 +58,19 @@
 		scrollbar-color: var(--scrollbar-color, auto);
 
 		& > .highlighted {
+			min-width: 100%;
 			width: var(--content-width, max-content);
 			height: var(--content-height, max-content);
 
 			& > .line {
+				min-width: 100%;
 				display: block;
 				box-sizing: content-box;
 				line-height: var(--line-height, 1.4);
+
+				&.added {
+					background-color: var(--added-background, #eaf3ffff);
+				}
 			}
 		}
 	}
