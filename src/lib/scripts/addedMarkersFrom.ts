@@ -1,7 +1,7 @@
 import { diffArrays } from 'diff';
 import { Marker } from '$lib/scripts/marker.js';
 
-export function addedMarkers(oldText: string, newText: string): readonly Marker[] {
+export function addedMarkersFrom(oldText: string, newText: string): readonly Marker[] {
 	const changes = diffArrays(oldText.split('\n'), newText.split('\n'));
 	let lineNumber = 1;
 	const markers: Marker[] = [];

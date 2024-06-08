@@ -9,7 +9,7 @@
 	import { onMount } from 'svelte';
 	import { Language } from '$lib/scripts/language.js';
 	import { highlightText, hljsRegisterLanguages } from '$lib/scripts/hljs.js';
-	import { addedMarkers } from '$lib/scripts/diff.js';
+	import { addedMarkersFrom } from '$lib/scripts/addedMarkersFrom.js';
 	import { isAddMark } from '$lib/scripts/markers.js';
 
 	export let text = '';
@@ -27,7 +27,7 @@
 
 	$: highlighted = import.meta.env.SSR ? undefined : highlightText(hljs, text, language);
 	$: lines = highlighted?.value.split('\n') ?? [];
-	$: markers = old === undefined ? [] : addedMarkers(old, text);
+	$: markers = old === undefined ? [] : addedMarkersFrom(old, text);
 	$: maxDigitCount = lines.length.toString().length;
 </script>
 
