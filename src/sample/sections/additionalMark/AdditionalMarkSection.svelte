@@ -58,11 +58,12 @@
 		justify-content: center;
 
 		& > .targets {
-			max-width: 90svw;
+			width: 90svw;
 			display: flex;
 			align-items: flex-start;
 
 			& > .target {
+				width: 40svw;
 				& > h3 {
 					width: 100%;
 					font-size: 18px;
