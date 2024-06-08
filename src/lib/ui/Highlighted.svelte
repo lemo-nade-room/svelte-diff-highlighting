@@ -11,6 +11,9 @@
 	import { highlightText, hljsRegisterLanguages } from '$lib/scripts/hljs.js';
 	import { addedMarkersFrom } from '$lib/scripts/addedMarkersFrom.js';
 	import { isAddMark } from '$lib/scripts/markers.js';
+	import { removedLinesFrom } from '$lib/scripts/removedLinesFrom.js';
+	import { isRemovedAfter } from '$lib/scripts/removeds.js';
+	import OmissionIcon from '$lib/ui/OmissionIcon.svelte';
 
 	export let text = '';
 	export let languages: readonly Language[] = Language.allCases;
@@ -29,6 +32,7 @@
 	$: lines = highlighted?.value.split('\n') ?? [];
 	$: markers = old === undefined ? [] : addedMarkersFrom(old, text);
 	$: maxDigitCount = lines.length.toString().length;
+	$: removeds = old === undefined ? [] : removedLinesFrom(old, text);
 </script>
 
 <div class="scroll">
@@ -36,6 +40,12 @@
 		{#each lines as line, i}
 			{@const lineNumber = i + 1}
 			<span class="line" class:added={isAddMark(markers, lineNumber)}>
+				{#if lineNumber === 1 && isRemovedAfter(0, removeds)}
+					<span class="omission-icon first"><OmissionIcon /></span>
+				{/if}
+				{#if isRemovedAfter(lineNumber, removeds)}
+					<span class="omission-icon"><OmissionIcon /></span>
+				{/if}
 				{#if setNumber}
 					<span class="line-number" style:width={`${maxDigitCount}em`}>{lineNumber}</span>
 				{/if}
@@ -67,6 +77,7 @@
 			min-width: 100%;
 			width: var(--content-width, max-content);
 			height: var(--content-height, max-content);
+			padding: calc(var(--line-number-font-size, 14px) * 0.4) 0;
 
 			& > .line {
 				min-width: 100%;
@@ -75,6 +86,22 @@
 				box-sizing: content-box;
 				line-height: var(--line-height, 1.4);
 				position: relative;
+
+				& > .omission-icon {
+					position: absolute;
+					left: var(--omission-icon-left, 1em);
+					top: 100%;
+					--size: calc(var(--line-number-font-size, 14px) * 0.8);
+					height: var(--size);
+					transform: translateY(-50%);
+					z-index: 1;
+
+					&.first {
+						top: auto;
+						bottom: 100%;
+						transform: translateY(50%);
+					}
+				}
 
 				& > .line-number {
 					display: inline-block;
