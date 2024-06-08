@@ -4,6 +4,6 @@ export class Markers {
 	constructor(private readonly markers: Marker[]) {}
 
 	isAddMark(lineNumber: number): boolean {
-		return this.markers.some((marker) => marker.isAddMark(lineNumber));
+		return this.markers.some((marker) => marker.isMarked(lineNumber));
 	}
 }

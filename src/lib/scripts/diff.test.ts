@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
-import { difference } from '$lib/scripts/diff.js';
-import { Marker, MarkerKind } from '$lib/scripts/marker.js';
+import { addedMarkers } from '$lib/scripts/diff.js';
+import { Marker } from '$lib/scripts/marker.js';
 import { Markers } from '$lib/scripts/markers.js';
 
 describe('diff Tests', () => {
@@ -19,15 +19,9 @@ describe('diff Tests', () => {
 			'\n6' + // 10 added
 			'\n7'; // 11 added
 
-		const markers = difference(oldText, newText);
+		const markers = addedMarkers(oldText, newText);
 
-		expect(markers).toEqual(
-			new Markers([
-				new Marker(MarkerKind.added, 1, 1),
-				new Marker(MarkerKind.added, 3, 5),
-				new Marker(MarkerKind.added, 10, 11)
-			])
-		);
+		expect(markers).toEqual(new Markers([new Marker(1, 1), new Marker(3, 5), new Marker(10, 11)]));
 	});
 
 	test('add only middle', () => {
@@ -45,14 +39,34 @@ describe('diff Tests', () => {
 			'\n4' +
 			'\n5';
 
-		const markers = difference(oldText, newText);
+		const markers = addedMarkers(oldText, newText);
 
-		expect(markers).toEqual(
-			new Markers([
-				new Marker(MarkerKind.added, 2, 4),
-				new Marker(MarkerKind.added, 6, 7),
-				new Marker(MarkerKind.added, 9, 9)
-			])
-		);
+		expect(markers).toEqual(new Markers([new Marker(2, 4), new Marker(6, 7), new Marker(9, 9)]));
 	});
+
+	// test('remove first, middle and last', () => {
+	// 	const oldText =
+	// 		'0' + // 0-1: removed
+	// 		'\n1' +
+	// 		'\n1.1' + // 1-2 removed
+	// 		'\n1.2' + // 1-2 removed
+	// 		'\n1.3' + // 1-2 removed
+	// 		'\n2' +
+	// 		'\n3' +
+	// 		'\n4' +
+	// 		'\n5' +
+	// 		'\n6' + // 5-6 removed
+	// 		'\n7'; // 5-6 removed
+	// 	const newText = '1\n2\n3\n4\n5';
+	//
+	// 	const markers = addDifference(oldText, newText);
+	//
+	// 	expect(markers).toEqual(
+	// 		new Markers([
+	// 			new Marker(MarkerKind.removed, 0, 1),
+	// 			new Marker(MarkerKind.removed, 1, 2),
+	// 			new Marker(MarkerKind.removed, 4, 6)
+	// 		])
+	// 	);
+	// });
 });
