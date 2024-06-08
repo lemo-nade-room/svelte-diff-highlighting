@@ -12,5 +12,13 @@
 	main {
 		font-family: 'Assistant', sans-serif;
 		font-weight: normal;
+
+		--base-color: #ffffff;
+		--on-base-color: #1d1d1f;
+		--box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		--code-font-family: 'JetBrains Mono';
+
+		color: var(--on-base-color);
+		background-color: var(--base-color);
 	}
 </style>

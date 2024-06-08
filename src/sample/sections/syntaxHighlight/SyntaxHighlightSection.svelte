@@ -10,6 +10,7 @@
 </script>
 
 <section class="syntax-highlight">
+	<h2>Syntax Highlight</h2>
 	<form>
 		<select bind:value={selectedName}>
 			{#each syntaxHighlightSamples as sample}
@@ -26,39 +27,39 @@
 </section>
 
 <style>
-    .syntax-highlight {
-        width: 100svw;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 40px;
+	.syntax-highlight {
+		width: 100svw;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 40px;
 
-        & > form {
-            & > select {
-                width: 120px;
-                height: 40px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                line-height: 24px;
-            }
+		& > form {
+			& > select {
+				width: 120px;
+				height: 40px;
+				box-shadow: var(--box-shadow);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				line-height: 24px;
+			}
 
-            padding: 24px;
-        }
+			padding: 24px;
+		}
 
-        & > .code {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
-            font-optical-sizing: auto;
-            font-weight: 400;
-            font-style: normal;
-            width: 480px;
-            max-width: 90svw;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 12px 24px;
-        }
-    }
+		& > .code {
+			font-family: var(--code-font-family), monospace;
+			font-size: 14px;
+			font-optical-sizing: auto;
+			font-weight: 400;
+			font-style: normal;
+			width: 480px;
+			max-width: 90svw;
+			box-shadow: var(--box-shadow);
+			padding: 12px 24px;
+		}
+	}
 </style>

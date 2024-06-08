@@ -6,12 +6,13 @@
 <script lang="ts">
 	import hljs, { type HighlightResult } from 'highlight.js';
 	import { onMount } from 'svelte';
-	import type { Language } from '$lib/scripts/language.js';
+	import { Language } from '$lib/scripts/language.js';
 	import { highlightText, hljsRegisterLanguages } from '$lib/scripts/hljs.js';
 
 	export let text = '';
-	export let languages: readonly Language[];
+	export let languages: readonly Language[] = Language.allCases;
 	export let language: Language | undefined;
+	export let old: string | undefined = undefined;
 
 	let highlighted: HighlightResult | undefined;
 
