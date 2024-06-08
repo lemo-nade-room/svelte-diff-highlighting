@@ -1,8 +1,10 @@
 <script lang="ts">
 	import './reset.css';
+	import Header from '$sample/header/Header.svelte';
 </script>
 
 <main>
+	<Header/>
 	<slot />
 </main>
 
@@ -17,6 +19,9 @@
 		--on-base-color: #1d1d1f;
 		--box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		--code-font-family: 'JetBrains Mono';
+
+			--header-base-color: #F5F5F7;
+			--header-on-base-color:#1D1D1F;
 
 		color: var(--on-base-color);
 		background-color: var(--base-color);
