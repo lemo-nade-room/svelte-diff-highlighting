@@ -9,7 +9,7 @@
 	$: selected = samples.find((sample) => sample.lang.name === selectedName);
 </script>
 
-<section class="page">
+<section class="syntax-highlight">
 	<form>
 		<select bind:value={selectedName}>
 			{#each samples as sample}
@@ -26,7 +26,7 @@
 </section>
 
 <style>
-	.page {
+	.syntax-highlight {
 		width: 100svw;
 		display: flex;
 		flex-direction: column;
