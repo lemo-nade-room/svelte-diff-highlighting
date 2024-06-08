@@ -4,7 +4,7 @@
 </script>
 
 <main>
-	<Header/>
+	<Header />
 	<slot />
 </main>
 
@@ -20,8 +20,8 @@
 		--box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		--code-font-family: 'JetBrains Mono';
 
-			--header-base-color: #F5F5F7;
-			--header-on-base-color:#1D1D1F;
+		--header-base-color: #f5f5f7;
+		--header-on-base-color: #1d1d1f;
 
 		color: var(--on-base-color);
 		background-color: var(--base-color);
