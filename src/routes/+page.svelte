@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Highlighted from '$lib/ui/Highlighted.svelte';
 	import { Language } from '$lib/scripts/language.js';
-	import { samples } from './samples.js';
+	import { samples } from '$sample/samples.js';
 	import 'highlight.js/styles/github.css';
 
 	let selectedName = samples[0].lang.name;
