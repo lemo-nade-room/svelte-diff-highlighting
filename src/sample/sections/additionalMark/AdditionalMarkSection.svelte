@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Highlighted from '$lib/ui/Highlighted.svelte';
 	import { Language } from '$lib/scripts/language.js';
-	import 'highlight.js/styles/github.css';
+	import 'highlight.js/styles/xcode.css';
 
 	const oldText = `func fizzbuzz(number: Int) -> String {
 	if number % 3 == 0 {
