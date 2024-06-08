@@ -39,7 +39,12 @@
 	<p class="highlighted">
 		{#each lines as line, i}
 			{@const lineNumber = i + 1}
-			<span class="line" class:added={isAddMark(markers, lineNumber)}>
+			{#if lineNumber === 1 && isRemovedAfter(0, removeds)}<!--
+			--><span
+					class="removed-line"
+				/><!--
+			-->{/if}<!--
+			--><span class="line" class:added={isAddMark(markers, lineNumber)}>
 				{#if lineNumber === 1 && isRemovedAfter(0, removeds)}
 					<span class="omission-icon first"><OmissionIcon /></span>
 				{/if}
@@ -51,7 +56,12 @@
 				{/if}
 				<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 				{@html line}
-			</span>
+			</span><!--
+			-->{#if isRemovedAfter(lineNumber, removeds)}<!--
+			--><span
+					class="removed-line"
+				/><!--
+			-->{/if}
 		{/each}
 	</p>
 </div>
@@ -79,6 +89,7 @@
 			height: var(--content-height, max-content);
 			padding: calc(var(--line-number-font-size, 14px) * 0.4) 0;
 
+			--omission-icon-size: calc(var(--line-number-font-size, 14px) * 0.8);
 			& > .line {
 				min-width: 100%;
 				height: 100%;
@@ -91,7 +102,7 @@
 					position: absolute;
 					left: var(--omission-icon-left, 1em);
 					top: 100%;
-					--size: calc(var(--line-number-font-size, 14px) * 0.8);
+					--size: var(--omission-icon-size);
 					height: var(--size);
 					transform: translateY(-50%);
 					z-index: 1;
@@ -99,7 +110,7 @@
 					&.first {
 						top: auto;
 						bottom: 100%;
-						transform: translateY(50%);
+						transform: translateY(calc(50% - 1px));
 					}
 				}
 
@@ -128,6 +139,21 @@
 						height: 100%;
 					}
 				}
+			}
+			& > .removed-line {
+				&:before {
+					content: '';
+					display: block;
+					width: calc(100% - var(--omission-icon-left, 1em) - var(--omission-icon-size));
+					height: 100%;
+					background-color: var(--removed-line-color, #ffb74c);
+				}
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				width: 100%;
+				height: 1px;
+				text-align: right;
 			}
 		}
 	}
