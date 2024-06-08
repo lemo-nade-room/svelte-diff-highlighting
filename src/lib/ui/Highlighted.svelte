@@ -20,10 +20,7 @@
 		hljsRegisterLanguages(hljs, languages);
 	});
 
-	$: {
-		highlighted = highlightText(hljs, text, language);
-	}
-
+	$: highlighted = import.meta.env.SSR ? undefined : highlightText(hljs, text, language);
 	$: lines = highlighted?.value.split('\n') ?? [];
 </script>
 
