@@ -4,6 +4,11 @@ export class Marker {
 		readonly startLineNumber: number,
 		readonly endLineNumber: number
 	) {}
+
+	isAddMark(lineNumber: number): boolean {
+		if (this.kind !== MarkerKind.added) return false;
+		return this.startLineNumber <= lineNumber && lineNumber <= this.endLineNumber;
+	}
 }
 
 export class MarkerKind {
