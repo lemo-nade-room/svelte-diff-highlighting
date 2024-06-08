@@ -15,6 +15,7 @@
 	export let languages: readonly Language[] = Language.allCases;
 	export let language: Language | undefined;
 	export let old: string | undefined = undefined;
+	export let setNumber = false;
 
 	let highlighted: HighlightResult | undefined;
 
@@ -26,6 +27,7 @@
 	$: highlighted = import.meta.env.SSR ? undefined : highlightText(hljs, text, language);
 	$: lines = highlighted?.value.split('\n') ?? [];
 	$: markers = old === undefined ? new Markers([]) : difference(old, text);
+	$: maxDigitCount = lines.length.toString().length;
 </script>
 
 <div class="scroll">
@@ -33,6 +35,9 @@
 		{#each lines as line, i}
 			{@const lineNumber = i + 1}
 			<span class="line" class:added={markers.isAddMark(lineNumber)}>
+				{#if setNumber}
+					<span class="line-number" style:width={`${maxDigitCount}em`}>{lineNumber}</span>
+				{/if}
 				<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 				{@html line}
 			</span>
@@ -67,6 +72,11 @@
 				display: block;
 				box-sizing: content-box;
 				line-height: var(--line-height, 1.4);
+
+					& > .line-number {
+							display: inline-block;
+							text-align: var(--line-number-text-align, right);
+					}
 
 				&.added {
 					background-color: var(--added-background, #eaf3ffff);

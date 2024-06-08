@@ -7,9 +7,15 @@
 	if number % 3 == 0 {
 		return "Fizz"
 	}
+	if number % 5 == 0 {
+		return "Buzz"
+	}
 	return String(number)
 }`;
 	const newText = `func fizzbuzz(number: Int) -> String {
+	if number % 15 == 0 {
+		return "FizzBuzz"
+	}
 	if number % 3 == 0 {
 		return "Fizz"
 	}
@@ -26,20 +32,20 @@
 		<div class="old target">
 			<h3>Old Code</h3>
 			<div class="code">
-				<Highlighted text={oldText} language={Language.swift} />
+				<Highlighted setNumber text={oldText} language={Language.swift} />
 			</div>
 		</div>
 		<div class="new target">
 			<h3>New Code</h3>
 			<div class="code">
-				<Highlighted text={newText} language={Language.swift} />
+				<Highlighted setNumber text={newText} language={Language.swift} />
 			</div>
 		</div>
 	</div>
 
 	<div class="diff">
 		<h3>Difference</h3>
-		<Highlighted text={newText} language={Language.swift} old={oldText} />
+		<Highlighted setNumber text={newText} language={Language.swift} old={oldText} />
 	</div>
 </section>
 
