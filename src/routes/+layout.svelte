@@ -1,5 +1,5 @@
 <script lang="ts">
-	import './reset.css';
+	import '$lib/reset.css';
 	import Header from '$sample/header/Header.svelte';
 </script>
 

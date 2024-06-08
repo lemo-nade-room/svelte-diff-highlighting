@@ -4,6 +4,7 @@
 -->
 
 <script lang="ts">
+	import '$lib/reset.css';
 	import hljs, { type HighlightResult } from 'highlight.js';
 	import { onMount } from 'svelte';
 	import { Language } from '$lib/scripts/language.js';
