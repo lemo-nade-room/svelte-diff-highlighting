@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { removedLinesFrom } from '$lib/scripts/removedLinesFrom.js';
-import { RemovedLines } from '$lib/scripts/removedLines.js';
+import { Removed } from '$lib/scripts/removed.js';
 
 describe('addedMarkersFrom Tests', () => {
 	test('remove first, middle and last', () => {
@@ -21,11 +21,7 @@ describe('addedMarkersFrom Tests', () => {
 
 		const actual = removedLinesFrom(oldText, newText);
 
-		expect(actual).toEqual([
-			new RemovedLines(0, 1, 1),
-			new RemovedLines(1, 3, 5),
-			new RemovedLines(5, 10, 11)
-		]);
+		expect(actual).toEqual([new Removed(0, 1, 1), new Removed(1, 3, 5), new Removed(5, 10, 11)]);
 	});
 
 	test('remove only middle', () => {
@@ -46,10 +42,6 @@ describe('addedMarkersFrom Tests', () => {
 
 		const actual = removedLinesFrom(oldText, newText);
 
-		expect(actual).toEqual([
-			new RemovedLines(1, 2, 4),
-			new RemovedLines(2, 6, 7),
-			new RemovedLines(3, 9, 9)
-		]);
+		expect(actual).toEqual([new Removed(1, 2, 4), new Removed(2, 6, 7), new Removed(3, 9, 9)]);
 	});
 });
