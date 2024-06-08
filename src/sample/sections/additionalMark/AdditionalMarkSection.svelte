@@ -2,6 +2,8 @@
 	import Highlighted from '$lib/ui/Highlighted.svelte';
 	import { Language } from '$lib/scripts/language.js';
 	import 'highlight.js/styles/xcode.css';
+	import BorderedSection from '$sample/components/section/BorderedSection.svelte';
+	import SectionTitleText from '$sample/components/text/SectionTitleText.svelte';
 
 	const oldText = `func fizzbuzz(number: Int) -> String {
 	if number % 3 == 0 {
@@ -26,83 +28,97 @@
 }`;
 </script>
 
-<section class="additional-mark-section">
-	<h2>Additional Code Diff</h2>
-	<div class="targets">
-		<div class="old target">
-			<h3>Old Code</h3>
-			<div class="code">
-				<Highlighted setNumber text={oldText} language={Language.swift} />
+<BorderedSection>
+	<div class="additional-mark-section">
+		<div class="title">
+			<SectionTitleText>Additional Code Diff</SectionTitleText>
+		</div>
+		<div class="targets">
+			<div class="old target">
+				<h3>Old Code</h3>
+				<div class="code">
+					<Highlighted setNumber text={oldText} language={Language.swift} />
+				</div>
+			</div>
+			<div class="new target">
+				<h3>New Code</h3>
+				<div class="code">
+					<Highlighted setNumber text={newText} language={Language.swift} />
+				</div>
 			</div>
 		</div>
-		<div class="new target">
-			<h3>New Code</h3>
-			<div class="code">
-				<Highlighted setNumber text={newText} language={Language.swift} />
-			</div>
-		</div>
-	</div>
 
-	<div class="diff">
-		<h3>Difference</h3>
-		<Highlighted setNumber text={newText} language={Language.swift} old={oldText} />
+		<div class="diff">
+			<h3>Difference</h3>
+			<div class="code">
+				<Highlighted setNumber text={newText} language={Language.swift} old={oldText} />
+			</div>
+		</div>
 	</div>
-</section>
+</BorderedSection>
 
 <style>
 	.additional-mark-section {
-		width: 100svw;
+		width: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: center;
+
+		& > .title {
+			margin-bottom: 32px;
+			width: 100%;
+		}
 
 		& > .targets {
 			width: 90svw;
 			display: flex;
 			align-items: flex-start;
+			justify-content: space-between;
+			margin-bottom: 24px;
 
 			& > .target {
-				width: 40svw;
+				width: calc(45svw - 6px);
+
 				& > h3 {
 					width: 100%;
 					font-size: 18px;
 					font-weight: 600;
-					margin-bottom: 12px;
+					margin-bottom: 4px;
 				}
 
+				& > .code {
+					font-family: var(--code-font-family), monospace;
+					font-size: 14px;
+					font-optical-sizing: auto;
+					font-weight: 400;
+					font-style: normal;
+					box-shadow: var(--box-shadow);
+					padding: 12px 0;
+					border-radius: 4px;
+				}
+			}
+		}
+
+		& > .diff {
+			width: 90svw;
+			& > h3 {
+				width: 100%;
+				font-size: 18px;
+				font-weight: 600;
+				margin-bottom: 4px;
+			}
+
+			& > .code {
+				width: 100%;
 				font-family: var(--code-font-family), monospace;
 				font-size: 14px;
 				font-optical-sizing: auto;
 				font-weight: 400;
 				font-style: normal;
+				max-width: 90svw;
 				box-shadow: var(--box-shadow);
-				padding: 12px 24px;
-				border-radius: 4px;
+				padding: 12px 0;
 			}
-
-			& > .new {
-				margin-left: 24px;
-			}
-		}
-
-		& > .diff {
-			& > h3 {
-				width: 100%;
-				font-size: 18px;
-				font-weight: 600;
-				margin-bottom: 12px;
-			}
-			margin-top: 24px;
-			font-family: var(--code-font-family), monospace;
-			font-size: 14px;
-			font-optical-sizing: auto;
-			font-weight: 400;
-			font-style: normal;
-			width: 480px;
-			max-width: 90svw;
-			box-shadow: var(--box-shadow);
-			padding: 12px 24px;
 		}
 	}
 </style>

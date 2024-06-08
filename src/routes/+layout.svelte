@@ -17,6 +17,7 @@
 
 		--base-color: #ffffff;
 		--on-base-color: #1d1d1f;
+		--surface-color: #e8e8ef;
 		--box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		--code-font-family: 'JetBrains Mono';
 

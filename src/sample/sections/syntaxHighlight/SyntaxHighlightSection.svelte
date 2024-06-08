@@ -3,37 +3,47 @@
 	import { Language } from '$lib/scripts/language.js';
 	import { syntaxHighlightSamples } from '$sample/sections/syntaxHighlight/syntaxHighlightSamples.js';
 	import 'highlight.js/styles/github.css';
+	import BorderedSection from '$sample/components/section/BorderedSection.svelte';
+	import SectionTitleText from '$sample/components/text/SectionTitleText.svelte';
 
 	let selectedName = syntaxHighlightSamples[0].lang.name;
 
 	$: selected = syntaxHighlightSamples.find((sample) => sample.lang.name === selectedName);
 </script>
 
-<section class="syntax-highlight">
-	<h2>Syntax Highlight</h2>
-	<form>
-		<select bind:value={selectedName}>
-			{#each syntaxHighlightSamples as sample}
-				<option value={sample.lang.name}>{sample.lang.name}</option>
-			{/each}
-		</select>
-	</form>
+<BorderedSection>
+	<div class="syntax-highlight-section">
+		<div class="title">
+			<SectionTitleText>Syntax Highlight</SectionTitleText>
+		</div>
+		<form>
+			<select bind:value={selectedName}>
+				{#each syntaxHighlightSamples as sample}
+					<option value={sample.lang.name}>{sample.lang.name}</option>
+				{/each}
+			</select>
+		</form>
 
-	<div class="code">
-		{#if selected !== undefined}
-			<Highlighted text={selected.code} languages={Language.allCases} language={selected.lang} />
-		{/if}
+		<div class="code">
+			{#if selected !== undefined}
+				<Highlighted text={selected.code} languages={Language.allCases} language={selected.lang} />
+			{/if}
+		</div>
 	</div>
-</section>
+</BorderedSection>
+<section class="syntax-highlight"></section>
 
 <style>
-	.syntax-highlight {
-		width: 100svw;
+	.syntax-highlight-section {
+		width: 100%;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		padding: 40px;
+		align-items: flex-start;
+
+		& > .title {
+			width: 100%;
+			margin-bottom: 24px;
+		}
 
 		& > form {
 			& > select {
@@ -46,8 +56,7 @@
 				text-align: center;
 				line-height: 24px;
 			}
-
-			padding: 24px;
+			margin-bottom: 16px;
 		}
 
 		& > .code {
