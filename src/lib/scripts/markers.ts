@@ -1,9 +1,5 @@
 import type { Marker } from '$lib/scripts/marker.js';
 
-export class Markers {
-	constructor(private readonly markers: Marker[]) {}
-
-	isAddMark(lineNumber: number): boolean {
-		return this.markers.some((marker) => marker.isMarked(lineNumber));
-	}
+export function isAddMark(markers: readonly Marker[], lineNumber: number): boolean {
+	return markers.some((marker) => marker.isMarked(lineNumber));
 }

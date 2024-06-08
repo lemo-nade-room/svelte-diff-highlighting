@@ -1,7 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { addedMarkers } from '$lib/scripts/diff.js';
 import { Marker } from '$lib/scripts/marker.js';
-import { Markers } from '$lib/scripts/markers.js';
 
 describe('diff Tests', () => {
 	test('add first, middle and last', () => {
@@ -21,7 +20,7 @@ describe('diff Tests', () => {
 
 		const markers = addedMarkers(oldText, newText);
 
-		expect(markers).toEqual(new Markers([new Marker(1, 1), new Marker(3, 5), new Marker(10, 11)]));
+		expect(markers).toEqual([new Marker(1, 1), new Marker(3, 5), new Marker(10, 11)]);
 	});
 
 	test('add only middle', () => {
@@ -41,7 +40,7 @@ describe('diff Tests', () => {
 
 		const markers = addedMarkers(oldText, newText);
 
-		expect(markers).toEqual(new Markers([new Marker(2, 4), new Marker(6, 7), new Marker(9, 9)]));
+		expect(markers).toEqual([new Marker(2, 4), new Marker(6, 7), new Marker(9, 9)]);
 	});
 
 	// test('remove first, middle and last', () => {

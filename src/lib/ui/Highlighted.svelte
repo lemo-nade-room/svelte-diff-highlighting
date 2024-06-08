@@ -10,7 +10,7 @@
 	import { Language } from '$lib/scripts/language.js';
 	import { highlightText, hljsRegisterLanguages } from '$lib/scripts/hljs.js';
 	import { addedMarkers } from '$lib/scripts/diff.js';
-	import { Markers } from '$lib/scripts/markers.js';
+	import { isAddMark } from '$lib/scripts/markers.js';
 
 	export let text = '';
 	export let languages: readonly Language[] = Language.allCases;
@@ -27,7 +27,7 @@
 
 	$: highlighted = import.meta.env.SSR ? undefined : highlightText(hljs, text, language);
 	$: lines = highlighted?.value.split('\n') ?? [];
-	$: markers = old === undefined ? new Markers([]) : addedMarkers(old, text);
+	$: markers = old === undefined ? [] : addedMarkers(old, text);
 	$: maxDigitCount = lines.length.toString().length;
 </script>
 
@@ -35,7 +35,7 @@
 	<p class="highlighted">
 		{#each lines as line, i}
 			{@const lineNumber = i + 1}
-			<span class="line" class:added={markers.isAddMark(lineNumber)}>
+			<span class="line" class:added={isAddMark(markers, lineNumber)}>
 				{#if setNumber}
 					<span class="line-number" style:width={`${maxDigitCount}em`}>{lineNumber}</span>
 				{/if}
