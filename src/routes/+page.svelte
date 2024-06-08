@@ -1,18 +1,18 @@
 <script lang="ts">
 	import Highlighted from '$lib/ui/Highlighted.svelte';
 	import { Language } from '$lib/scripts/language.js';
-	import { samples } from '$sample/samples.js';
+	import { syntaxHighlightSamples } from '$sample/syntaxHighlightSamples.js';
 	import 'highlight.js/styles/github.css';
 
-	let selectedName = samples[0].lang.name;
+	let selectedName = syntaxHighlightSamples[0].lang.name;
 
-	$: selected = samples.find((sample) => sample.lang.name === selectedName);
+	$: selected = syntaxHighlightSamples.find((sample) => sample.lang.name === selectedName);
 </script>
 
 <section class="syntax-highlight">
 	<form>
 		<select bind:value={selectedName}>
-			{#each samples as sample}
+			{#each syntaxHighlightSamples as sample}
 				<option value={sample.lang.name}>{sample.lang.name}</option>
 			{/each}
 		</select>

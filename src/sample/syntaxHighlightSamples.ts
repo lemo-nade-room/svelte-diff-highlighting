@@ -1,11 +1,11 @@
 import { Language } from '$lib/scripts/language.js';
 
-export interface Sample {
+export interface SyntaxHighlightSample {
 	code: string;
 	lang: Language;
 }
 
-export const samples: readonly Sample[] = [
+export const syntaxHighlightSamples: readonly SyntaxHighlightSample[] = [
 	{
 		code: `if myItem = 0 then
 	display dialog "I don't have something to bring" buttons {"OK"} default button "OK"
