@@ -13,7 +13,7 @@
 <style>
 	.omission-icon {
 		display: block;
-		background-color: var(--background-color, #d90005);
+		background-color: var(--background-color, #ffb74c);
 		--length: var(--size, 1em);
 		--height: calc(var(--length) / 2 * tan(60deg));
 		height: var(--height);
