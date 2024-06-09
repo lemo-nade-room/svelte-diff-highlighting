@@ -1,10 +1,10 @@
 # Svelte Diff Highlighting
 
-## Overview
+## 概要
 
-This library is a Svelte component library for syntax highlighting and showing differences in source code.
+このライブラリは、ソースコードのSyntax Highlightingや差分表示を行うためのSvelteコンポーネントライブラリです。
 
-## Usage
+## 使用方法
 
 ```shell
 npm install svelte-diff-highlighting highlight.js
@@ -23,11 +23,11 @@ npm install svelte-diff-highlighting highlight.js
 <Highlighted text={sourceCode} language={Language.java} />
 ```
 
-## Homepage
+## ホームページ
 
 https://lemo-nade-room.github.io/svelte-diff-highlighting
 
-## NPM Registry
+## NPMレジストリ
 
 https://www.npmjs.com/package/svelte-diff-highlighting
 
