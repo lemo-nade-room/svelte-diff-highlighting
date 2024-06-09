@@ -2,6 +2,7 @@
 	import OmissionIcon from '$lib/ui/OmissionIcon.svelte';
 	import HighlightedLine from '$lib/ui/HighlightedLine.svelte';
 	import type { Removed } from '$lib/scripts/removed.js';
+	import { slide } from 'svelte/transition';
 
 	export let open = false;
 	export let oldLines: readonly string[];
@@ -12,22 +13,24 @@
 
 <div class="highlighted-removed-line">
 	<div class="closed">
-		<span class="omission-icon"><OmissionIcon /></span>
+		<span class="omission-icon"><OmissionIcon bind:open /></span>
 		<span class="removed-line" />
 	</div>
-	<div class="opened">
-		{#each removed.lineNumbers as lineNumber}
-			<span class="line">
-				<HighlightedLine
-					{lineNumber}
-					html={oldLines[lineNumber - 1]}
-					{setNumber}
-					{maxNumberDigitCount}
-					marker
-				/>
-			</span>
-		{/each}
-	</div>
+	{#if open}
+		<div class="opened" transition:slide>
+			{#each removed.lineNumbers as lineNumber}
+				<span class="line">
+					<HighlightedLine
+						{lineNumber}
+						html={oldLines[lineNumber - 1]}
+						{setNumber}
+						{maxNumberDigitCount}
+						marker
+					/>
+				</span>
+			{/each}
+		</div>
+	{/if}
 </div>
 
 <style>
