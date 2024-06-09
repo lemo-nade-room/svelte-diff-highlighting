@@ -38,7 +38,7 @@
 </script>
 
 <div class="scroll svelte-diff-highlighting">
-	<p class="highlighted">
+	<p class="highlighted" translate="no">
 		{#each lines as line, i}
 			{@const lineNumber = i + 1}
 			<span class="line">
