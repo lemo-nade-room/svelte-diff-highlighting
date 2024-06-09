@@ -3,6 +3,7 @@
 	"repository": {
 		"url": "https://github.com/lemo-nade-room/svelte-diff-highlighting"
 	},
+	"license": "MIT",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && bun run package",
