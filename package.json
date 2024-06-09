@@ -1,5 +1,8 @@
 {
 	"name": "svelte-diff-highlighting",
+	"repository": {
+		"url": "https://github.com/lemo-nade-room/svelte-diff-highlighting"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && bun run package",
