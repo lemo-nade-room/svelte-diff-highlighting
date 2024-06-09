@@ -35,10 +35,6 @@
 	$: removeds = old === undefined ? [] : removedLinesFrom(old, text);
 	$: oldHighilghted = old === undefined ? undefined : highlightText(hljs, old, language);
 	$: oldLines = oldHighilghted?.value.split('\n') ?? [];
-
-	$: {
-		console.log(markers);
-	}
 </script>
 
 <div class="scroll">
