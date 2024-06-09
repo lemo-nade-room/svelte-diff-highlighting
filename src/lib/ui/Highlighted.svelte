@@ -12,7 +12,6 @@
 	import { addedMarkersFrom } from '$lib/scripts/addedMarkersFrom.js';
 	import { isAddMark } from '$lib/scripts/markers.js';
 	import { removedLinesFrom } from '$lib/scripts/removedLinesFrom.js';
-	import { filterRemovedLines } from '$lib/scripts/removeds.js';
 	import HighlightedLine from '$lib/ui/HighlightedLine.svelte';
 	import HighlightedRemovedLines from '$lib/ui/HighlightedRemovedLines.svelte';
 
@@ -36,6 +35,10 @@
 	$: removeds = old === undefined ? [] : removedLinesFrom(old, text);
 	$: oldHighilghted = old === undefined ? undefined : highlightText(hljs, old, language);
 	$: oldLines = oldHighilghted?.value.split('\n') ?? [];
+
+	$:{
+		console.log(markers)
+	}
 </script>
 
 <div class="scroll">
