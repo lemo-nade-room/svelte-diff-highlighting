@@ -1,10 +1,7 @@
 <script lang="ts">
-	import OmissionIcon from '$lib/ui/OmissionIcon.svelte';
-
 	export let html: string;
 	export let lineNumber: number;
 	export let isAdded: boolean;
-	export let isRemovedAfter: boolean;
 	export let setNumber: boolean;
 	export let maxNumberDigitCount: number;
 </script>

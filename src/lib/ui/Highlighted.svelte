@@ -45,7 +45,6 @@
 					html={line}
 					{lineNumber}
 					isAdded={isAddMark(markers, lineNumber)}
-					isRemovedAfter={isRemovedAfter(lineNumber, removeds)}
 					{setNumber}
 					maxNumberDigitCount={maxDigitCount}
 				/>
