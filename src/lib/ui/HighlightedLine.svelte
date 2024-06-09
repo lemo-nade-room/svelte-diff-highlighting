@@ -1,7 +1,7 @@
 <script lang="ts">
 	export let html: string;
 	export let lineNumber: number;
-	export let isAdded: boolean;
+	export let isAdded = false;
 	export let setNumber: boolean;
 	export let maxNumberDigitCount: number;
 </script>

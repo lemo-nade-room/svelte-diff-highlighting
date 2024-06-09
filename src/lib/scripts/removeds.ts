@@ -7,3 +7,7 @@ export function isRemovedOldLines(removeds: readonly Removed[], lineNumber: numb
 export function isRemovedAfter(lineNumber: number, removeds: readonly Removed[]): boolean {
 	return removeds.some((removed) => removed.afterNewLineNumber === lineNumber);
 }
+
+export function filterRemovedLines(lines: readonly string[], removed: Removed): readonly string[] {
+	return lines.filter((_, i) => removed.isRemoved(i + 1));
+}

@@ -12,7 +12,7 @@
 	import { addedMarkersFrom } from '$lib/scripts/addedMarkersFrom.js';
 	import { isAddMark } from '$lib/scripts/markers.js';
 	import { removedLinesFrom } from '$lib/scripts/removedLinesFrom.js';
-	import { isRemovedAfter } from '$lib/scripts/removeds.js';
+	import { filterRemovedLines } from '$lib/scripts/removeds.js';
 	import HighlightedLine from '$lib/ui/HighlightedLine.svelte';
 	import HighlightedRemovedLines from '$lib/ui/HighlightedRemovedLines.svelte';
 
@@ -34,6 +34,8 @@
 	$: markers = old === undefined ? [] : addedMarkersFrom(old, text);
 	$: maxDigitCount = lines.length.toString().length;
 	$: removeds = old === undefined ? [] : removedLinesFrom(old, text);
+	$: oldHighilghted = old === undefined ? undefined : highlightText(hljs, old, language);
+	$: oldLines = oldHighilghted?.value.split('\n') ?? [];
 </script>
 
 <div class="scroll">
@@ -49,9 +51,15 @@
 					maxNumberDigitCount={maxDigitCount}
 				/>
 			</span>
-			{#if isRemovedAfter(lineNumber, removeds)}
+			{@const removed = removeds.find((removed) => removed.afterNewLineNumber === lineNumber)}
+			{#if removed !== undefined}
 				<span class="removed">
-					<HighlightedRemovedLines />
+					<HighlightedRemovedLines
+						{oldLines}
+						{removed}
+						{setNumber}
+						maxNumberDigitCount={maxDigitCount}
+					/>
 				</span>
 			{/if}
 		{/each}

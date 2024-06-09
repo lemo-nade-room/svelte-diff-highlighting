@@ -1,13 +1,31 @@
 <script lang="ts">
 	import OmissionIcon from '$lib/ui/OmissionIcon.svelte';
+	import HighlightedLine from '$lib/ui/HighlightedLine.svelte';
+	import type { Removed } from '$lib/scripts/removed.js';
 
 	export let open = false;
+	export let oldLines: readonly string[];
+	export let removed: Removed;
+	export let setNumber: boolean;
+	export let maxNumberDigitCount: number;
 </script>
 
 <div class="highlighted-removed-line">
 	<div class="closed">
 		<span class="omission-icon"><OmissionIcon /></span>
 		<span class="removed-line" />
+	</div>
+	<div class="opened">
+		{#each removed.lineNumbers as lineNumber}
+			<span class="line">
+				<HighlightedLine
+					{lineNumber}
+					html={oldLines[lineNumber - 1]}
+					{setNumber}
+					{maxNumberDigitCount}
+				/>
+			</span>
+		{/each}
 	</div>
 </div>
 
