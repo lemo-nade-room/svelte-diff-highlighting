@@ -57,6 +57,10 @@ To publish your library to [npm](https://www.npmjs.com):
 npm publish
 ```
 
+## HomePage
+
+https://lemo-nade-room.github.io/svelte-diff-highlighting
+
 ## License
 
 This software is released under the MIT License. For more details, please refer to the [LICENSE](./LICENSE) file.
