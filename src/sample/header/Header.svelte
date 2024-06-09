@@ -1,4 +1,4 @@
-<header>
+<header translate="no">
 	<h1>Svelte Diff Highlighting</h1>
 	<nav>
 		<a href="/">Docs</a>

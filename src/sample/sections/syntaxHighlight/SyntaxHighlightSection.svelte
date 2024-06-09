@@ -17,7 +17,7 @@
 			<SectionTitleText>Syntax Highlight</SectionTitleText>
 		</div>
 		<form>
-			<select bind:value={selectedName}>
+			<select translate="no" bind:value={selectedName}>
 				{#each syntaxHighlightSamples as sample}
 					<option value={sample.lang.name}>{sample.lang.name}</option>
 				{/each}
