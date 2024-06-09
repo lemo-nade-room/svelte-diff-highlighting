@@ -56,7 +56,7 @@
 					display: block;
 					width: calc(100% - var(--omission-icon-size));
 					height: 100%;
-					background-color: var(--removed-line-color, #ffb74c);
+					background-color: var(--omission-icon-color, #ffb74c);
 				}
 
 				display: flex;

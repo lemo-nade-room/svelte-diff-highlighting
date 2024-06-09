@@ -6,9 +6,7 @@
 	}
 </script>
 
-<button class="omission-icon" class:open on:click={toggle}>
-	<span class="circle"></span>
-</button>
+<button class="omission-icon" class:open on:click={toggle} />
 
 <style>
 	.omission-icon {
