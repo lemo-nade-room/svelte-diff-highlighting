@@ -23,6 +23,8 @@ jobs:
           new_version="${{ steps.extract.outputs.version }}"
           jq --arg new_version "$new_version" '.version = $new_version' package.json > temp.json && mv temp.json package.json
 
+      - run: bun install
+
       - run: bun run build
 
       - run: npm publish --provenance --access public
