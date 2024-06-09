@@ -82,7 +82,8 @@
 			height: var(--content-height, max-content);
 			padding: calc(var(--line-number-font-size, 14px) * 0.4) 0;
 			white-space: nowrap;
-
+			user-select: none;
+			-webkit-user-select: none;
 			--omission-icon-size: calc(var(--line-number-font-size, 14px) * 0.8);
 		}
 	}

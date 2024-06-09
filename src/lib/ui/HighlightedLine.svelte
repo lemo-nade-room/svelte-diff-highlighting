@@ -14,7 +14,7 @@
 		<span class="line-number" style:width={`${maxNumberDigitCount}em`}>{lineNumber}</span>
 	{/if}
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-	{@html html}
+	<span class="html">{@html html}</span>
 </span>
 
 <style>
@@ -51,6 +51,11 @@
 				width: var(--added-marker-border-width, 4px);
 				height: 100%;
 			}
+		}
+
+		& > .html {
+			user-select: text;
+			-webkit-user-select: text;
 		}
 	}
 </style>
