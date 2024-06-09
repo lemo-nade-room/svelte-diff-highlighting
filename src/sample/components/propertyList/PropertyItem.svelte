@@ -5,12 +5,12 @@
 </script>
 
 <li class="property-item">
-	<h4 class="name">{item.name}</h4>
+	<h4 class="name" translate="no">{item.name}</h4>
 	<p class="attribute">
-		<span class="type">{item.type}</span>
+		<span class="type" translate="no">{item.type}</span>
 		<span class="is-option">{item.required ? 'Required' : 'Optional'}</span>
 		{#if !item.required}
-			<span class="default">default: {item.default}</span>
+			<span class="default" translate="no">default: {item.default}</span>
 		{/if}
 	</p>
 	<p class="description">{item.description}</p>
