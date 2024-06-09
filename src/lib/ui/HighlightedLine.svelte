@@ -10,9 +10,6 @@
 </script>
 
 <span class="highlighted-line" class:added={isAdded}>
-	{#if isRemovedAfter}
-		<span class="omission-icon"><OmissionIcon /></span>
-	{/if}
 	{#if setNumber}
 		<span class="line-number" style:width={`${maxNumberDigitCount}em`}>{lineNumber}</span>
 	{/if}
@@ -29,22 +26,6 @@
 		line-height: var(--line-height, 1.4);
 		position: relative;
 		white-space: pre;
-
-		& > .omission-icon {
-			position: absolute;
-			left: var(--omission-icon-left, 1em);
-			top: 100%;
-			--size: var(--omission-icon-size);
-			height: var(--size);
-			transform: translateY(-50%);
-			z-index: 1;
-
-			&.first {
-				top: auto;
-				bottom: 100%;
-				transform: translateY(calc(50% - 1px));
-			}
-		}
 
 		& > .line-number {
 			display: inline-block;

@@ -14,6 +14,7 @@
 	import { removedLinesFrom } from '$lib/scripts/removedLinesFrom.js';
 	import { isRemovedAfter } from '$lib/scripts/removeds.js';
 	import HighlightedLine from '$lib/ui/HighlightedLine.svelte';
+	import HighlightedRemovedLines from '$lib/ui/HighlightedRemovedLines.svelte';
 
 	export let text = '';
 	export let languages: readonly Language[] = Language.allCases;
@@ -39,9 +40,6 @@
 	<p class="highlighted">
 		{#each lines as line, i}
 			{@const lineNumber = i + 1}
-			{#if lineNumber === 1 && isRemovedAfter(0, removeds)}
-				<span class="removed-line" />
-			{/if}
 			<span class="line">
 				<HighlightedLine
 					html={line}
@@ -53,7 +51,9 @@
 				/>
 			</span>
 			{#if isRemovedAfter(lineNumber, removeds)}
-				<span class="removed-line" />
+				<span class="removed">
+					<HighlightedRemovedLines />
+				</span>
 			{/if}
 		{/each}
 	</p>
@@ -84,22 +84,6 @@
 			white-space: nowrap;
 
 			--omission-icon-size: calc(var(--line-number-font-size, 14px) * 0.8);
-
-			& > .removed-line {
-				&:before {
-					content: '';
-					display: block;
-					width: calc(100% - var(--omission-icon-left, 1em) - var(--omission-icon-size));
-					height: 100%;
-					background-color: var(--removed-line-color, #ffb74c);
-				}
-				display: flex;
-				justify-content: flex-end;
-				align-items: center;
-				width: 100%;
-				height: 1px;
-				text-align: right;
-			}
 		}
 	}
 </style>
