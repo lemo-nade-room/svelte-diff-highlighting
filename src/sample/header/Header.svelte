@@ -1,9 +1,12 @@
+<script lang="ts">
+	import { base } from '$app/paths';
+</script>
 <header translate="no">
 	<h1>Svelte Diff Highlighting</h1>
 	<nav>
-		<a href="/">Docs</a>
-		<a href="/api">API</a>
-		<a href="/example">Examples</a>
+		<a href="{base}/">Docs</a>
+		<a href="{base}/api">API</a>
+		<a href="{base}/example">Examples</a>
 	</nav>
 </header>
 
