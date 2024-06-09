@@ -4,6 +4,7 @@
 -->
 
 <script lang="ts">
+	import '../reset.css';
 	import hljs, { type HighlightResult } from 'highlight.js';
 	import { onMount } from 'svelte';
 	import { Language } from '$lib/scripts/language.js';
@@ -36,7 +37,7 @@
 	$: oldLines = oldHighilghted?.value.split('\n') ?? [];
 </script>
 
-<div class="scroll">
+<div class="scroll svelte-diff-highlighting">
 	<p class="highlighted">
 		{#each lines as line, i}
 			{@const lineNumber = i + 1}
