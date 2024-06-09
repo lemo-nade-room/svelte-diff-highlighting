@@ -1,2 +1,2 @@
 // Reexport your entry components here
-export * from './ui/Highlighted.svelte';
+export { default as Highlighted } from './ui/Highlighted.svelte';
