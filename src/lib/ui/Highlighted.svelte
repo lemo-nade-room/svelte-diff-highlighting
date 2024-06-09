@@ -36,8 +36,8 @@
 	$: oldHighilghted = old === undefined ? undefined : highlightText(hljs, old, language);
 	$: oldLines = oldHighilghted?.value.split('\n') ?? [];
 
-	$:{
-		console.log(markers)
+	$: {
+		console.log(markers);
 	}
 </script>
 
