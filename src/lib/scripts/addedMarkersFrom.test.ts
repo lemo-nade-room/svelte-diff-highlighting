@@ -42,4 +42,22 @@ describe('addedMarkersFrom Tests', () => {
 
 		expect(markers).toEqual([new Marker(2, 4), new Marker(6, 7), new Marker(9, 9)]);
 	});
+
+	test('add and remove', () => {
+		const oldText = ['1', '2', '3', '4', '5'].join('\n');
+		const newText = [
+			'0', // 1: added
+			'1', // 2
+			'1.1', // 3 added
+			'1.2', // 4 added
+			'3.5', // 5 added
+			'4', // 6
+			'5', // 7
+			'6' // 8 added
+		].join('\n');
+
+		const markers = addedMarkersFrom(oldText, newText);
+
+		expect(markers).toEqual([new Marker(1, 1), new Marker(3, 5), new Marker(8, 8)]);
+	});
 });
