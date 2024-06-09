@@ -5,7 +5,7 @@
 	import AddAndRemoveMarkSection from '$sample/sections/addAndRemoveMark/AddAndRemoveMarkSection.svelte';
 </script>
 
-<AddAndRemoveMarkSection />
-<RemovedMarkSection />
-<AdditionalMarkSection />
 <SyntaxHighlightSection />
+<AdditionalMarkSection />
+<RemovedMarkSection />
+<AddAndRemoveMarkSection />
