@@ -76,9 +76,8 @@
 		background: var(--background, none);
 		margin: var(--margin, 0);
 		padding: var(--padding, 0);
-		white-space: var(--white-space, pre-wrap);
+		white-space: pre-wrap;
 		tab-size: var(--tab-size, 2);
-		box-sizing: var(--box-sizing, border-box);
 		scrollbar-width: var(--scrollbar-width, thin);
 		scrollbar-color: var(--scrollbar-color, auto);
 
@@ -87,7 +86,7 @@
 			width: var(--content-width, max-content);
 			height: var(--content-height, max-content);
 			padding: calc(var(--line-number-font-size, 14px) * 0.4) 0;
-			white-space: nowrap;
+			white-space: var(--white-space, nowrap);
 			user-select: none;
 			-webkit-user-select: none;
 			--omission-icon-size: calc(var(--line-number-font-size, 14px) * 0.8);
