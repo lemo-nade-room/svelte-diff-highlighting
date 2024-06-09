@@ -26,6 +26,7 @@
 				left: var(--omission-icon-left, 0);
 				top: 50%;
 				transform: translateY(calc(-50% - 1px));
+				z-index: 1;
 			}
 			& > .removed-line {
 				&:before {
