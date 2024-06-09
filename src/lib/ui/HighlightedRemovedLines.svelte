@@ -23,6 +23,7 @@
 					html={oldLines[lineNumber - 1]}
 					{setNumber}
 					{maxNumberDigitCount}
+					marker
 				/>
 			</span>
 		{/each}
@@ -61,6 +62,13 @@
 				width: 100%;
 				height: 1px;
 				text-align: right;
+			}
+		}
+		& > .opened {
+			& > .line {
+				--marker-border-color: var(--removed-marker-border-color, #ffb74c);
+				--marker-border-width: var(--removed-marker-border-width, var(--marker-border-width, 4px));
+				--marker-background-color: var(--removed-marker-background-color, #fff7ea);
 			}
 		}
 	}

@@ -1,12 +1,12 @@
 <script lang="ts">
 	export let html: string;
 	export let lineNumber: number;
-	export let isAdded = false;
+	export let marker = false;
 	export let setNumber: boolean;
 	export let maxNumberDigitCount: number;
 </script>
 
-<span class="highlighted-line" class:added={isAdded}>
+<span class="highlighted-line" class:marker>
 	{#if setNumber}
 		<span class="line-number" style:width={`${maxNumberDigitCount}em`}>{lineNumber}</span>
 	{/if}
@@ -35,17 +35,17 @@
 			margin-left: var(--line-number-margin-left, 0.5em);
 		}
 
-		&.added {
-			background-color: var(--added-background, #eaf3ffff);
+		&.marker {
+			background-color: var(--marker-background-color);
 
 			&:before {
 				content: '';
 				position: absolute;
 				top: 0;
 				left: 0;
-				background-color: var(--added-marker-border-color, #4ca9ffff);
+				background-color: var(--marker-border-color);
 				display: inline-block;
-				width: var(--added-marker-border-width, 4px);
+				width: var(--marker-border-width, 4px);
 				height: 100%;
 			}
 		}

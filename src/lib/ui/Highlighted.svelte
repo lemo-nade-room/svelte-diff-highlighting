@@ -46,7 +46,7 @@
 				<HighlightedLine
 					html={line}
 					{lineNumber}
-					isAdded={isAddMark(markers, lineNumber)}
+					marker={isAddMark(markers, lineNumber)}
 					{setNumber}
 					maxNumberDigitCount={maxDigitCount}
 				/>
@@ -92,6 +92,12 @@
 			user-select: none;
 			-webkit-user-select: none;
 			--omission-icon-size: calc(var(--line-number-font-size, 14px) * 0.8);
+
+			& > .line {
+				--marker-border-color: var(--added-marker-border-color, #4ca9ffff);
+				--marker-border-width: var(--added-marker-border-width, var(--marker-border-width, 4px));
+				--marker-background-color: var(--added-marker-background-color, #eaf3ffff);
+			}
 		}
 	}
 </style>
