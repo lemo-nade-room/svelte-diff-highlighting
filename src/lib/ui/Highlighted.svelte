@@ -17,7 +17,7 @@
 
 	export let text = '';
 	export let languages: readonly Language[] = Language.allCases;
-	export let language: Language | undefined;
+	export let language: Language | undefined = undefined;
 	export let old: string | undefined = undefined;
 	export let setNumber = false;
 
