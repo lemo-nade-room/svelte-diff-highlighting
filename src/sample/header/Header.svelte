@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 </script>
+
 <header translate="no">
 	<h1>Svelte Diff Highlighting</h1>
 	<nav>
