@@ -40,6 +40,19 @@
 <div class="scroll svelte-diff-highlighting">
 	<p class="highlighted" translate="no">
 		{#each lines as line, i}
+			{#if i === 0}
+				{@const removed = removeds.find((removed) => removed.afterNewLineNumber === 0)}
+				{#if removed !== undefined}
+					<span class="removed">
+						<HighlightedRemovedLines
+							{oldLines}
+							{removed}
+							{setNumber}
+							maxNumberDigitCount={maxDigitCount}
+						/>
+					</span>
+				{/if}
+			{/if}
 			{@const lineNumber = i + 1}
 			<span class="line">
 				<HighlightedLine
